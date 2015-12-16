@@ -5053,6 +5053,7 @@ extern __nonreentrant void _delay3(unsigned char);
 # 17 "visitorSensorMain.c"
 int direction = 0;
 
+# 26
 void SetupClock()
 {
 OSCCONbits.IRCF0 = 1;
@@ -5060,12 +5061,14 @@ OSCCONbits.IRCF1 = 1;
 OSCCONbits.IRCF2 = 1;
 }
 
+# 39
 void msDelay(unsigned int x){
 for(int i = 0; i < x; i++){
 _delay((unsigned long)((1)*(8000000/4000.0)));
 }
 }
 
+# 48
 void portInit(){
 TRISBbits.RB4 = 0;
 TRISCbits.RC0 = 1;
@@ -5077,9 +5080,9 @@ RB4 = 0;
 void main(void) {
 SetupClock();
 portInit();
-while(1){
+while(true){
 
-# 53
+# 65
 while(direction == 0){
 if(!RC0){
 msDelay(100);
